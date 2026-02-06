@@ -48,7 +48,7 @@ p.set_array(colors)
 p.set_clim(0.9,1.5) #カラーバーの範囲
 ax.add_collection(p)
 
-plt.colorbar(p).set_label(r"$\Delta r_j(t\to\infty)$",size=30) #カラーバーを描画し，ラベルを設定
+plt.colorbar(p).set_label(r"$\sigma_j$",size=30) #カラーバーを描画し，ラベルを設定
 
 ax.spines['top'].set_linewidth(3)
 ax.spines['bottom'].set_linewidth(3)
