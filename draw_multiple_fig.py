@@ -82,6 +82,7 @@ omega,gamma0,G1,G2,G0,sG1,sG2 = np.loadtxt("./pm0.9_SS/dp1e-3/omega1e-2/shear_dp
 ax2.errorbar(gamma0/1.e-3,(G1-G0)/omega**0.5,(sG1-0.02*G0)/omega**0.5, ecolor="red",marker="H",color="red",capsize=5,linestyle="-",markersize=12,lw=3.5,label=r"$\delta\varphi=10^{-3}$")
 
 
+#x=-0.5からx=1の範囲で y=1.e-1*(10.0**x)**(-0.5) というグラフ
 x = np.linspace(-0.5,1.,1000)
 y = 1.e-1*(10.0**x)**(-0.5)
 ax2.plot(10.0**x, y, ls = "--",color = "black",lw=3.5,zorder=2)
