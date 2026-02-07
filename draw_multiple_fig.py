@@ -15,119 +15,88 @@ plt.rcParams["text.usetex"] =True
 plt.rc('text', usetex=True)
 # Axesを追加
 #plt.figure(1)
-fig = plt.figure(figsize=(20,8)) ##サイズ指定 (横の長さ,縦の長さ)
+fig = plt.figure(figsize=(12,16)) ##サイズ指定 (横の長さ,縦の長さ)
 
 #1番目のグラフ
-ax1 = fig.add_subplot(121) #位置を指定 今は縦に1個, 横に2個，このグラフは1番目 -> (121)と書く
+ax1 = fig.add_subplot(211) #位置を指定 今は縦に2個, 横に1個，このグラフは1番目 -> (211)と書く
 
 plt.xscale('log')
-plt.yscale('log')
+# plt.yscale('log')
 
-#エラーバー付きのグラフの描き方
-omega,gamma0,G1,G2,G0,sG1,sG2 = np.loadtxt("./pm0.9_SS/dp1e-5/omega1e-4/shear_dp0.00001_omega0.00010.dat",comments='!', unpack=True)
-ax1.errorbar(gamma0,G1-G0,sG1-0.02*G0, ecolor="purple",marker="o",color="purple",capsize=5,linestyle="-",markersize=12,lw=3.5,label=r"$(\delta\varphi,\omega)=(10^{-5},10^{-4})$")
+t,Fs0,Fs1 = np.loadtxt("./glass/T1.00/Fs_T1.00_rho0.80.dat",comments='!', unpack=True) #データの読み込み
+ax1.plot(t,Fs0,"-o",color="red",markersize=8,lw=3.5,label=r"$T=1.0$",zorder=2)
 
-omega,gamma0,G1,G2,G0,sG1,sG2 = np.loadtxt("./pm0.9_SS/dp1e-5/omega1e-3/shear_dp0.00001_omega0.00100.dat",comments='!', unpack=True)
-ax1.errorbar(gamma0,G1-G0,sG1-0.02*G0, ecolor="blue",marker="^",color="blue",capsize=5,linestyle="-",markersize=12,lw=3.5,label=r"$(10^{-5},10^{-3})$")
+t,Fs0,Fs1 = np.loadtxt("./glass/T0.72/Fs_T0.72_rho0.80.dat",comments='!', unpack=True) #データの読み込み
+ax1.plot(t,Fs0,"-^",color="darkorange",markersize=8,lw=3.5,label=r"$T=0.72$",zorder=3)
 
-omega,gamma0,G1,G2,G0,sG1,sG2 = np.loadtxt("./pm0.9_SS/dp1e-5/omega1e-2/shear_dp0.00001_omega0.01000.dat",comments='!', unpack=True)
-ax1.errorbar(gamma0,G1-G0,sG1-0.02*G0, ecolor="green",marker="s",color="green",capsize=5,linestyle="-",markersize=12,lw=3.5,label=r"$(10^{-5},10^{-2})$")
+t,Fs0,Fs1 = np.loadtxt("./glass/T0.64/Fs_T0.64_rho0.80.dat",comments='!', unpack=True) #データの読み込み
+ax1.plot(t,Fs0,"-s",color="green",markersize=8,lw=3.5,label=r"$T=0.64$",zorder=4)
 
-omega,gamma0,G1,G2,G0,sG1,sG2 = np.loadtxt("./pm0.9_SS/dp1e-4/omega1e-2/shear_dp0.00010_omega0.01000.dat",comments='!', unpack=True)
-ax1.errorbar(gamma0,G1-G0,sG1-0.02*G0, ecolor="darkorange",marker="p",color="darkorange",capsize=5,linestyle="-",markersize=12,lw=3.5,label=r"$(10^{-4},10^{-2})$")
+t,Fs0,Fs1 = np.loadtxt("./glass/T0.56/Fs_T0.56_rho0.80.dat",comments='!', unpack=True) #データの読み込み
+ax1.plot(t,Fs0,"-D",color="blue",markersize=8,lw=3.5,label=r"$T=0.56$",zorder=5)
 
-omega,gamma0,G1,G2,G0,sG1,sG2 = np.loadtxt("./pm0.9_SS/dp1e-3/omega1e-2/shear_dp0.00100_omega0.01000.dat",comments='!', unpack=True)
-ax1.errorbar(gamma0,G1-G0,sG1-0.02*G0, ecolor="red",marker="H",color="red",capsize=5,linestyle="-",markersize=12,lw=3.5,label=r"$(10^{-3},10^{-2})$")
+ax1.axhline(y=np.exp(-1),lw=3,color="black",linestyle=":",zorder=1) #x軸に並行な線
 
-ax1.text(3.e-9,0.02, r"(a)",size=40)
+ax1.text(1.5e-2,0.41, r"$F_s(q,t)=1/e$",size=32,color="black") #グラフに文字を入れる
 
-plt.xticks(color='k', size=40)
-plt.yticks(color='k', size=40)
-plt.xlabel(r"$$\gamma$$",color='k', size=40)
-plt.ylabel(r"$\Delta G'(\omega,\gamma)$",color='k', size=40)
+plt.xticks(color='k', size=0) #x軸の目盛りの色('k'=黒)とサイズ
+plt.yticks(color='k', size=35) #y軸の目盛りの色('k'=黒)とサイズ
+plt.xlabel(r"$$t$$",color='k', size=0) #x軸のラベル色('k'=黒)とサイズ
+plt.ylabel(r"$F_s(q=2\pi,t)$",color='k', size=35) #y軸のラベル色('k'=黒)とサイズ
 #目盛設定
-plt.xlim(1.e-7,1.e-2)
-plt.ylim(2.e-4,3.e-2)
-plt.tick_params(which='major',width = 2, length = 12.5, direction='in',pad=10)
-plt.tick_params(which='minor',width = 2, length = 5, direction='in',pad=10)
-ax1.spines['top'].set_linewidth(3)
-ax1.spines['bottom'].set_linewidth(3)
-ax1.spines['left'].set_linewidth(3)
-ax1.spines['right'].set_linewidth(3)
-leg = plt.legend(loc='lower center', bbox_to_anchor=(1.1,1.02), ncol=3, fontsize=35,edgecolor="black")
-leg.get_frame().set_linewidth(3)
-
-plt.subplots_adjust(wspace=0.3, hspace=0.0)
+plt.xlim(1.e-2,1.e+4) #x軸の範囲
+plt.ylim(0,1) #y軸の範囲
+plt.tick_params(axis='x', which='major',width = 1, length = 10, direction='in',pad=10) #x軸の主目盛り -> width: 目盛りの太さ, length: 目盛りの長さ, direction: 目盛りの方向 ('in'は内側に表示), pad: 軸と目盛りの距離
+plt.tick_params(axis='x',which='minor',width = 1, length = 5, direction='in')
+ax1.tick_params(axis='y', which='major', labelsize=35, width=1, length=10, direction='in',pad=10)
+ax1.tick_params(axis='y', which='minor', labelsize=35, width=1, length=5, direction='in')
+ax1.spines['top'].set_linewidth(2.5) #グラフを囲む線の太さ
+ax1.spines['bottom'].set_linewidth(2.5)
+ax1.spines['left'].set_linewidth(2.5)
+ax1.spines['right'].set_linewidth(2.5)
+leg = plt.legend(loc='lower center', bbox_to_anchor=(0.85,0.525), ncol=1, fontsize=32,edgecolor="black",handletextpad=0.2,handlelength=1) #凡例 -> bbox_to_anchorで位置を調整, ncol: 列の数, edgecolor: 凡例の枠線の色, handletextpad: 凡例のプロットとラベル間の距離, handlelength: 凡例のプロットの長さ
+leg.get_frame().set_linewidth(2.5) #凡例中のプロット線の太さ
 
 
 #2番目のグラフ
-ax2 = fig.add_subplot(122) #位置を指定 今は縦に1個, 横に2個，このグラフは2番目 -> (122)と書く
+ax2 = fig.add_subplot(212) #位置を指定 今は縦に2個, 横に1個，このグラフは2番目 -> (212)と書く
 
 plt.xscale('log')
 plt.yscale('log')
 
-omega,gamma0,G1,G2,G0,sG1,sG2 = np.loadtxt("./pm0.9_SS/dp1e-5/omega1e-4/shear_dp0.00001_omega0.00010.dat",comments='!', unpack=True)
-ax2.errorbar(gamma0/1.e-5,(G1-G0)/omega**0.5,(sG1-0.02*G0)/omega**0.5, ecolor="purple",marker="o",color="purple",capsize=5,linestyle="-",markersize=12,lw=3.5,label=r"$\omega=10^{-4}$")
+t,MSD0,MSD1 = np.loadtxt("./glass/T1.00/MSD_T1.00_rho0.80.dat",comments='!', unpack=True) #データの読み込み
+ax2.plot(t,MSD0,"-o",color="red",markersize=8,lw=3.5,label=r"$T=1.0$",zorder=2)
 
-omega,gamma0,G1,G2,G0,sG1,sG2 = np.loadtxt("./pm0.9_SS/dp1e-5/omega1e-3/shear_dp0.00001_omega0.00100.dat",comments='!', unpack=True)
-ax2.errorbar(gamma0/1.e-5,(G1-G0)/omega**0.5,(sG1-0.02*G0)/omega**0.5, ecolor="blue",marker="^",color="blue",capsize=5,linestyle="-",markersize=12,lw=3.5,label=r"$\omega=10^{-3}$")
+t,MSD0,MSD1 = np.loadtxt("./glass/T0.72/MSD_T0.72_rho0.80.dat",comments='!', unpack=True) #データの読み込み
+ax2.plot(t,MSD0,"-^",color="darkorange",markersize=8,lw=3.5,label=r"$T=0.72$",zorder=3)
 
-omega,gamma0,G1,G2,G0,sG1,sG2 = np.loadtxt("./pm0.9_SS/dp1e-5/omega1e-2/shear_dp0.00001_omega0.01000.dat",comments='!', unpack=True)
-ax2.errorbar(gamma0/1.e-5,(G1-G0)/omega**0.5,(sG1-0.02*G0)/omega**0.5, ecolor="green",marker="s",color="green",capsize=5,linestyle="-",markersize=12,lw=3.5,label=r"$\omega=10^{-2}$")
+t,MSD0,MSD1 = np.loadtxt("./glass/T0.64/MSD_T0.64_rho0.80.dat",comments='!', unpack=True) #データの読み込み
+ax2.plot(t,MSD0,"-s",color="green",markersize=8,lw=3.5,label=r"$T=0.64$",zorder=4)
 
-omega,gamma0,G1,G2,G0,sG1,sG2 = np.loadtxt("./pm0.9_SS/dp1e-4/omega1e-2/shear_dp0.00010_omega0.01000.dat",comments='!', unpack=True)
-ax2.errorbar(gamma0/1.e-4,(G1-G0)/omega**0.5,(sG1-0.02*G0)/omega**0.5, ecolor="darkorange",marker="p",color="darkorange",capsize=5,linestyle="-",markersize=12,lw=3.5,label=r"$\delta\varphi=10^{-4}$")
-
-omega,gamma0,G1,G2,G0,sG1,sG2 = np.loadtxt("./pm0.9_SS/dp1e-3/omega1e-2/shear_dp0.00100_omega0.01000.dat",comments='!', unpack=True)
-ax2.errorbar(gamma0/1.e-3,(G1-G0)/omega**0.5,(sG1-0.02*G0)/omega**0.5, ecolor="red",marker="H",color="red",capsize=5,linestyle="-",markersize=12,lw=3.5,label=r"$\delta\varphi=10^{-3}$")
+t,MSD0,MSD1 = np.loadtxt("./glass/T0.56/MSD_T0.56_rho0.80.dat",comments='!', unpack=True) #データの読み込み
+ax2.plot(t,MSD0,"-D",color="blue",markersize=8,lw=3.5,label=r"$T=0.56$",zorder=5)
 
 
-#x=-0.5からx=1の範囲で y=1.e-1*(10.0**x)**(-0.5) というグラフ
-x = np.linspace(-0.5,1.,1000)
-y = 1.e-1*(10.0**x)**(-0.5)
-ax2.plot(10.0**x, y, ls = "--",color = "black",lw=3.5,zorder=2)
 
-ax2.text(3.e-2,0.08, r"$\propto\gamma^{-1/2}$",size=40)
-
-ax2.text(8.e-5,0.25, r"(b)",size=40)
-
-plt.xticks(color='k', size=40)
-plt.yticks(color='k', size=40)
-plt.xlabel(r"$$\gamma/\delta\varphi$$",color='k', size=40)
-plt.ylabel(r"$\Delta G'(\omega,\gamma)/\omega^{1/2}$",color='k', size=40)
-ax2.yaxis.set_label_coords(-0.3, 0.5)
-# 目盛設定
-plt.xlim(1.e-2,1.e+3)
-plt.ylim(2.e-2,3.e-1)
-#y軸の目盛りをこちらで指定した値だけ表示する (logスケール)
-ax2.yaxis.set_major_locator(LogLocator(base=10.0, subs=[1.0]))
-minor_locator = LogLocator(base=10.0, subs=range(2, 10), numticks=100)
-ax2.yaxis.set_minor_locator(minor_locator)
-selected_ticks = [2e-2, 3e-2, 5e-2, 2e-1, 3e-1]
-ax2.tick_params(which='minor', width=1, length=5)
-for tick in selected_ticks:
-    exponent = int(np.floor(np.log10(tick)))
-    coeff = tick / 10**exponent
-    # 整数ならそのまま、そうでなければ小数表示
-    if abs(coeff - round(coeff)) < 1e-6:
-        coeff = int(round(coeff))
-    label = rf"${coeff} \times 10^{{{exponent}}}$"
-    ax2.text(
-        -0.27, tick, label,
-        va='center', ha='left',
-        transform=ax2.get_yaxis_transform(),
-        fontsize=35
-    )
-plt.tick_params(which='major',width = 2, length = 12.5, direction='in',pad=10)
-plt.tick_params(which='minor',width = 2, length = 5, direction='in',pad=10)
-ax2.spines['top'].set_linewidth(3)
-ax2.spines['bottom'].set_linewidth(3)
-ax2.spines['left'].set_linewidth(3)
-ax2.spines['right'].set_linewidth(3)
+plt.xticks(color='k', size=35) #x軸の目盛りの色('k'=黒)とサイズ
+plt.yticks(color='k', size=35) #y軸の目盛りの色('k'=黒)とサイズ
+plt.xlabel(r"$$t$$",color='k', size=35) #x軸のラベル色('k'=黒)とサイズ
+plt.ylabel(r"$\langle\Delta r^2(t)\rangle$",color='k', size=35) #y軸のラベル色('k'=黒)とサイズ
+#目盛設定
+plt.xlim(1.e-2,1.e+4) #x軸の範囲
+plt.ylim(1.e-4,3.e+2) #y軸の範囲
+plt.tick_params(axis='x', which='major',width = 1, length = 10, direction='in',pad=10, top=True) #top=Trueで上側にも目盛りがつく
+plt.tick_params(axis='x',which='minor',width = 1, length = 5, direction='in', top=True)
+ax2.tick_params(axis='y', which='major', labelsize=35, width=1, length=10, direction='in',pad=10)
+ax2.tick_params(axis='y', which='minor', labelsize=35, width=1, length=5, direction='in')
+ax2.spines['top'].set_linewidth(2.5) #グラフを囲む線の太さ
+ax2.spines['bottom'].set_linewidth(2.5)
+ax2.spines['left'].set_linewidth(2.5)
+ax2.spines['right'].set_linewidth(2.5)
 
 
-plt.subplots_adjust(wspace=0.45, hspace=0.0) #2つのグラフの間隔を調整する
+plt.subplots_adjust(wspace=0, hspace=0.02) #2つのグラフの間隔を調整する
 
-plt.savefig('./pm0.9_SS/Fig1_Delta_G1_gamma0.pdf',bbox_inches="tight")
+# plt.savefig('./glass/Fs_MSD_rho0.80.pdf',bbox_inches="tight") #保存, 各自ディレクトリを変更する
 
 plt.show()
