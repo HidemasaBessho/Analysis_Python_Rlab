@@ -13,4 +13,5 @@
 <img width="2219" height="1809" alt="download" src="https://github.com/user-attachments/assets/c2b2aa4c-48d8-41ae-9b76-39295a71f77d" />
 - draw_vector_field.py: ベクトル場を矢印として描くコード
   <img width="2199" height="1809" alt="download-1" src="https://github.com/user-attachments/assets/24b5648b-478f-4673-970c-6b445f92ac0b" />
-
+- mov.py: 動画 (gif) を作成するコード
+  ![stress_chain](https://github.com/user-attachments/assets/936ea9cc-9fa6-467f-befb-6eef4acc5442)
