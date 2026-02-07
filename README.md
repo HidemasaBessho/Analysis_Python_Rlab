@@ -1,5 +1,7 @@
 # 内容  
-- draw_single_fig.py: 1つのグラフを描くコード (**最も基本**)  
+- draw_single_fig.py: 1つのグラフを描くコード (**最も基本**)
+<img width="2210" height="1516" alt="download" src="https://github.com/user-attachments/assets/04e806e9-8e60-41f4-921e-0fa17c318d29" />
+
 - draw_multiple_fig.py: 複数のグラフを一つにまとめて描くコード
 - draw_inset_fig.py: グラフ中にinset (挿入図) を描くコード    
 - draw_arrow.py: グラフ中に矢印を描くコード  
