@@ -6,7 +6,7 @@
 <img width="2274" height="2748" alt="download-1" src="https://github.com/user-attachments/assets/6ca5b516-1cb4-4b78-9c46-4a1a4a836528" />
 
 - draw_inset_fig.py: グラフ中に**inset (挿入図)** を描くコード
-  <img width="2285" height="1532" alt="download-1" src="https://github.com/user-attachments/assets/9494a541-843e-4164-98b8-af165e3073ae" />
+  <img width="2285" height="1532" alt="download" src="https://github.com/user-attachments/assets/c66971c6-9bef-41f7-be9a-531a61273626" />
     
 - draw_arrow.py: グラフ中に**矢印**を描くコード
   <img width="2278" height="1530" alt="download" src="https://github.com/user-attachments/assets/08483390-7c49-459b-bf73-2420e35472fd" />
