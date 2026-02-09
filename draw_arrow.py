@@ -15,7 +15,7 @@ ax1 = fig.add_subplot(111)
 plt.xscale('log')
 plt.yscale('log')
 
-gamma,txy,P,U,xi,dr,dr0,z=np.loadtxt("./dp1e-5/AQS/pm0.9/Shear_dp0.000010.dat", comments='!', unpack=True, skiprows=1)
+gamma,txy,P,U,xi,dr,dr0,z=np.loadtxt("./dp1e-5/AQS/pm0.9/Shear_dp0.000010.dat", comments='!', unpack=True, skiprows=1) #skiprows=1で1行目のデータを飛ばす
 ax1.plot(gamma/1.e-5,txy/P/(1.e-5)**0.5,"-o",markersize=6,linewidth=3.0,color="purple",label=r"$\delta\varphi=10^{-5}$")
 
 gamma,txy,P,U,xi,dr,dr0,z=np.loadtxt("./dp1e-4/AQS/pm0.9/Shear_dp0.000100.dat", comments='!', unpack=True, skiprows=1)
