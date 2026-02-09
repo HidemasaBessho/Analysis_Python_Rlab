@@ -18,17 +18,17 @@ plt.xscale('log') #対数プロット
 # plt.yscale('log')
 
 t,Fs0,Fs1 = np.loadtxt("./glass/T1.00/Fs_T1.00_rho0.80.dat",comments='!', unpack=True) #データの読み込み
-ax1.plot(t,Fs0,"-o",color="red",markersize=8,lw=3.5,label=r"$T=1.0$",zorder=2)
-#x軸: t, y軸: Fs0, markerと線の種類: "-o", 色: "red", マーカーサイズ: 12, 線の太さ: 3.5, 凡例名: "$T=1.0$", zorder: グラフを表示する上下関係
+ax1.plot(t,Fs0,"-o",color="red",markersize=8,lw=3.5,label=r"$T=1.0$",zorder=2,alpha=1)
+#x軸: t, y軸: Fs0, markerと線の種類: "-o", 色: "red", マーカーサイズ: 12, 線の太さ: 3.5, 凡例名: "$T=1.0$", zorder: グラフを表示する上下関係, alpha: 透明度
 
-t,Fs0,Fs1 = np.loadtxt("./glass/T0.72/Fs_T0.72_rho0.80.dat",comments='!', unpack=True) #データの読み込み
-ax1.plot(t,Fs0,"-^",color="darkorange",markersize=8,lw=3.5,label=r"$T=0.72$",zorder=3)
+t,Fs0,Fs1 = np.loadtxt("./glass/T0.72/Fs_T0.72_rho0.80.dat",comments='!', unpack=True)
+ax1.plot(t,Fs0,"-^",color="darkorange",markersize=8,lw=3.5,label=r"$T=0.72$",zorder=3,alpha=1)
 
-t,Fs0,Fs1 = np.loadtxt("./glass/T0.64/Fs_T0.64_rho0.80.dat",comments='!', unpack=True) #データの読み込み
-ax1.plot(t,Fs0,"-s",color="green",markersize=8,lw=3.5,label=r"$T=0.64$",zorder=4)
+t,Fs0,Fs1 = np.loadtxt("./glass/T0.64/Fs_T0.64_rho0.80.dat",comments='!', unpack=True)
+ax1.plot(t,Fs0,"-s",color="green",markersize=8,lw=3.5,label=r"$T=0.64$",zorder=4,alpha=1)
 
-t,Fs0,Fs1 = np.loadtxt("./glass/T0.56/Fs_T0.56_rho0.80.dat",comments='!', unpack=True) #データの読み込み
-ax1.plot(t,Fs0,"-D",color="blue",markersize=8,lw=3.5,label=r"$T=0.56$",zorder=5)
+t,Fs0,Fs1 = np.loadtxt("./glass/T0.56/Fs_T0.56_rho0.80.dat",comments='!', unpack=True)
+ax1.plot(t,Fs0,"-D",color="blue",markersize=8,lw=3.5,label=r"$T=0.56$",zorder=5,alpha=1)
 
 ax1.axhline(y=np.exp(-1),lw=3,color="black",linestyle=":",zorder=1) #x軸に並行な線 (y軸に並行な線の場合にはaxvlineにする)
 
