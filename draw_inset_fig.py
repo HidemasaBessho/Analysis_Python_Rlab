@@ -47,13 +47,15 @@ ax1.spines['top'].set_linewidth(3)
 ax1.spines['bottom'].set_linewidth(3)
 ax1.spines['left'].set_linewidth(3)
 ax1.spines['right'].set_linewidth(3)
-leg = plt.legend(loc='lower center', bbox_to_anchor=(0.23,0), ncol=1, fontsize=45, edgecolor="black",handletextpad=0.2,handlelength=1)
+leg = plt.legend(loc='lower center', bbox_to_anchor=(0.2,0), ncol=1, fontsize=35, edgecolor="black",handletextpad=0.5,handlelength=1)
 leg.get_frame().set_linewidth(3)
 for line in leg.get_lines():
-    line.set_linewidth(7)
+    line.set_linewidth(4)
 for handle in leg.legend_handles:
-    handle.set_markersize(14)
+    handle.set_markersize(10)
 ##
+
+
 
 #ax1に関連する挿入図
 ax1s = axes([0.56, 0.55, 0.32, 0.32]) #図全体における位置と大きさを調整 axes([左の位置, 下の位置, x方向の長さ (図の大きさに対する値), y方向の長さ (図の大きさに対する値)])
