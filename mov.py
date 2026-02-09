@@ -148,3 +148,4 @@ for step in range(0, 62831):
 # -----------------------
 ani = animation.ArtistAnimation(fig, ims, interval=100)
 ani.save("./stress_chain.gif", writer="imagemagick")
+ani.save("./stress_chain.mp4", writer="ffmpeg")
