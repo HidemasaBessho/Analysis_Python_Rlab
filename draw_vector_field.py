@@ -6,7 +6,6 @@ import numpy as np
 import matplotlib.patches as mpatches
 from matplotlib.collections import PatchCollection
 from matplotlib.patches import Circle
-import math
 
 plt.rcParams['font.family'] = 'Arial' #使用するフォント名
 plt.rcParams["text.usetex"] =True
