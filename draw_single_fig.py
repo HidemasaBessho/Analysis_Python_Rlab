@@ -13,13 +13,11 @@ plt.rcParams["font.size"] = 20
 plt.rcParams['font.family'] = 'Arial' #使用するフォント名
 plt.rcParams["text.usetex"] =True
 plt.rc('text', usetex=True)
-# Axesを追加
-#plt.figure(1)
 fig = plt.figure(figsize=(12,8)) ##サイズ指定##
 
 ax1 = fig.add_subplot(111)
 
-plt.xscale('log')
+plt.xscale('log') #対数プロット
 # plt.yscale('log')
 
 t,Fs0,Fs1 = np.loadtxt("./glass/T1.00/Fs_T1.00_rho0.80.dat",comments='!', unpack=True) #データの読み込み
@@ -35,7 +33,7 @@ ax1.plot(t,Fs0,"-s",color="green",markersize=8,lw=3.5,label=r"$T=0.64$",zorder=4
 t,Fs0,Fs1 = np.loadtxt("./glass/T0.56/Fs_T0.56_rho0.80.dat",comments='!', unpack=True) #データの読み込み
 ax1.plot(t,Fs0,"-D",color="blue",markersize=8,lw=3.5,label=r"$T=0.56$",zorder=5)
 
-ax1.axhline(y=np.exp(-1),lw=3,color="black",linestyle=":",zorder=1) #x軸に並行な線
+ax1.axhline(y=np.exp(-1),lw=3,color="black",linestyle=":",zorder=1) #x軸に並行な線 (y軸に並行な線の場合にはaxvlineにする)
 
 ax1.text(1.5e-2,0.41, r"$F_s(q,t)=1/e$",size=32,color="black") #グラフに文字を入れる
 
