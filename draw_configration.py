@@ -1,22 +1,19 @@
-%matplotlib inline
 import math
 import matplotlib
-#matplotlib.use("Agg")
 import matplotlib.cm as cm  # colormap
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.patches as mpatches
 from scipy.interpolate import Rbf
 import statistics
+from matplotlib.collections import PatchCollection
+from matplotlib.patches import Circle
 
 plt.rcParams['font.family'] = 'Arial' #使用するフォント名
 plt.rcParams["text.usetex"] =True
 plt.rcParams["font.size"] = 25
 
-from matplotlib.collections import PatchCollection
-from matplotlib.patches import Circle
-import numpy as np
-import math
+
 
 resolution = 50 # the number of vertices
 
