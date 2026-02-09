@@ -1,8 +1,5 @@
-%config InlineBackend.figure_format = 'retina'
-%matplotlib inline
 import matplotlib
 import math
-
 import matplotlib.cm as cm  # colormap
 import matplotlib.pyplot as plt
 import numpy as np
