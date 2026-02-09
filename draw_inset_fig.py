@@ -2,7 +2,7 @@
 %matplotlib inline
 import matplotlib
 import math
-from pylab import *
+from pylab import * #insetを描くのに必要
 
 import matplotlib.cm as cm  # colormap
 import matplotlib.pyplot as plt
