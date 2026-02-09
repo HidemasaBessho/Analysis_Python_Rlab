@@ -17,7 +17,6 @@ fig = plt.figure(figsize=(14,10))
 ax = fig.add_subplot(111)
 
 
-x0,y0,a0 = np.loadtxt("./pm0.9_SS/phi1.2/g1e-6/coord_N16384_cnt0_0.dat",comments='!', unpack=True)
 x,y,a = np.loadtxt("./pm0.9_SS/phi1.2/g1e-6/coord_N16384_cnt30_0.dat",comments='!', unpack=True)
 
 Np = 16384
